@@ -3,6 +3,8 @@ import { Card, ListGroup, Navbar, Nav, Form, FormControl, Button, ListGroupItem,
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './../App.css'
+
+
 export default function Movie(props) {
     // let [keyword,setKeyword] = useState('')
     let keyword = ''
@@ -23,7 +25,7 @@ export default function Movie(props) {
                 <Card className="col-md-6 col-lg-4 p-3 card  ">
                     <div data-test="container" class="container">
                         <div class="view overlay zoom" data-test="view">
-                            <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`} />
+                            <Card.Img onClick={() => props.modalIsOpen(movie.id)} variant="top" src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`} />
                         </div>
 
                         <div class="card mb-5 box-shadow">
@@ -39,6 +41,7 @@ export default function Movie(props) {
                                 <ListGroupItem>Release Date: {movie.release_date}</ListGroupItem>
                                 <ListGroupItem>Popularity: {movie.popularity}</ListGroupItem>
                             </ListGroup>
+                           
                             <Card.Body>
 
 
@@ -132,6 +135,9 @@ export default function Movie(props) {
 
 
             </div>
+           
+
+           
         </div>)
 
 }
